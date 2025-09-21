@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>All‑Night Xerox Services (ANXS)</title>
+  <meta name="description" content="All‑Night Xerox Services — We copy so you don't have to. Est. 1996.">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Fallback critical styles if CSS fails to load */
+    body { font-family: "Courier New", Courier, monospace; background:#f2f2f2; color:#111; }
+  </style>
+</head>
+<body>
+  <noscript>
+    <div class="noscript">This site looks best with JavaScript enabled. Our machines need electricity.</div>
+  </noscript>
+
+	<div class="print-only">
+        <h4>NOTE FROM PETE:<br>USE CODE <code>xeroxnight</code> IF YOUR GAME NIGHT HAS BEEN CANCELLED.</h4>
+    </div>
+
+  <div class="page-wrap">
+    <header class="site-header">
+      <div class="logo">A<span>N</span>X<span>S</span></div>
+      <div class="tagline">
+        <marquee behavior="scroll" scrollamount="3" truespeed>
+          We never sleep, so you can! • Open 25 hours • Est. 1996 • Life is short, but toner is forever • Never worry about bad copies
+        </marquee>
+      </div>
+    </header>
+
+    <nav class="top-nav">
+      <a href="#services">Services</a> •
+      <a href="#pricing">Pricing</a> •
+      <a href="#hours">Hours</a> •
+      <a href="#contact">Contact</a> •
+      <a href="#forms">Forms</a>
+    </nav>
+
+    <main class="content">
+      <table class="layout-table" cellspacing="0" cellpadding="8" border="1">
+        <tr>
+          <td class="sidebar" valign="top">
+            <h3>News &amp; Notices</h3>
+            <ul class="bullet">
+				<li>New! <span class="blink"><span class="animated-rainbow">COLOR</span></span> copies (now even more color).</li>
+              <li>Loyalty punch cards are back. Bring nine, get the tenth hole free.</li>
+              <li>Ask about our “Almost Overnight™” service.</li>
+            </ul>
+
+            <div class="coupon">
+              <h4>Printable Coupon</h4>
+              <p>10% off on every 11th copy when you call Pete and say “toner”.</p>
+              <button onclick="window.print()">Print This</button>
+            </div>
+          </td>
+
+          <td class="maincell" valign="top">
+            <h1>All‑Night Xerox Services</h1>
+            <p class="subtle">Proudly serving the tri‑borough since Windows 95.</p>
+
+            <section id="services">
+              <h2>Services</h2>
+              <ul>
+                <li>Black &amp; White Photocopying (crisp look guarantee)</li>
+				  <li><span class="animated-rainbow">Color</span> Photocopying (now with magenta)</li>
+                <li>Faxing (both directions)</li>
+                <li>Stapling (both single &amp; ambitious)</li>
+                <li>Lamination (make it shiny)</li>
+                <li>Manual Collation (by Pete)</li>
+                <li>Comb Binding (blue, black, sometimes clear)</li>
+              </ul>
+            </section>
+
+            <section id="pricing">
+              <h2>Pricing</h2>
+              <table class="price-table" border="1" cellpadding="4" cellspacing="0">
+                <tr><th>Service</th><th>Price*</th></tr>
+                <tr><td>B&amp;W Copies</td><td>$0.19 / page</td></tr>
+                <tr><td>Color Copies</td><td>$0.59 / page</td></tr>
+                <tr><td>Fax (Send)</td><td>$2.49 / page</td></tr>
+                <tr><td>Fax (Receive)</td><td>$1.99 / page</td></tr>
+                <tr><td>Lamination</td><td>$2.00 / item</td></tr>
+                <tr><td>Comb Binding</td><td>$5.00 / doc</td></tr>
+              </table>
+              <p class="fineprint">*Plus applicable taxes. Prices may change if the copier has “a moment.”</p>
+            </section>
+
+            <section id="hours">
+              <h2>Hours</h2>
+              <table class="hours" border="0">
+                <tr><td>Mon–Thu</td><td>1:00am–11:30pm</td></tr>
+                <tr><td>Fri–Sat</td><td>8:00am–“whenever”</td></tr>
+                <tr><td>Sunday</td><td>By arrangement with Pete</td></tr>
+              </table>
+            </section>
+
+            <section id="forms" class="signup">
+              <h2>Work Order / Mailing List</h2>
+              <p>Use this handy form to request copies or join our newsletter. We do not sell your email. We barely check it.</p>
+              <form id="anxs-form" action="#" method="get" onsubmit="return anxsHandleSubmit(event)">
+                <label>Email:
+                  <input type="email" name="email" id="email" required placeholder="you@example.com" />
+                </label>
+                <label>Job Type:
+                  <select name="job">
+                    <option>Photocopy (B&amp;W)</option>
+                    <option>Photocopy (Color)</option>
+                    <option>Fax (Outbound)</option>
+                    <option>Laminate</option>
+                    <option>Binding</option>
+                  </select>
+                </label>
+                <label>Pages:
+                  <input type="number" name="pages" min="1" value="1" />
+                </label>
+				<label>Your Message:
+				  <textarea name="message" id="message" rows="4" placeholder="Type a note for ANXS staff..."></textarea>
+				</label>
+                <fieldset class="promo">
+                  <legend>Promo / Staff Use Only</legend>
+                  <label>Code word:
+                    <input type="password" name="code" id="code" placeholder="optional" />
+                  </label>
+                </fieldset>
+                <div class="btnrow">
+                  <button type="submit">Submit</button>
+                  <button type="reset">Reset</button>
+                </div>
+                <div id="msg" role="status" aria-live="polite"></div>
+              </form>
+            </section>
+
+            <section id="contact">
+              <h2>Contact</h2>
+              <address>
+                1313 Copier Lane, Suite B (behind the vape shop)<br/>
+                Tel: (780) 011‑F A X X<br/>
+                Email: <a href="mailto:service@anxs.biz">pete@anxs.biz</a>
+              </address>
+            </section>
+          </td>
+        </tr>
+      </table>
+    </main>
+
+    <footer class="site-footer">
+      <div>© <span id="year"></span> All‑Night Xerox Services. “We don't sleep, so you can.”</div>
+      <div class="counter">Visitor Counter: <span id="counter">0001337</span></div>
+    </footer>
+  </div>
+
+  <script>
+  // ===== CONFIG =====
+  const SECRET_CODE = "xeroxnight"; 
+  const SECRET_PAGE = "paper_details.html"; 
+
+  // Add as many extra code->URL pairs as you like. Keys are matched case-insensitively.
+  const EXTRA_CODES = {
+    playtest: "https://gravesnail.itch.io/next-week/download/TZkB0R8dsEBwhOjTG9UEMLXFHqmICb6ZR0616_5Z",
+    trailer: "https://youtu.be/_vUbdriJIus"
+  };
+  // ==================
+
+  function anxsHandleSubmit(e){
+    e.preventDefault();
+
+    const email = document.getElementById('email').value.trim();
+    const codeInput = (document.getElementById('code').value || "").trim().toLowerCase();
+    const msg = document.getElementById('msg');
+
+    // email sanity check
+    if (!/.+@.+\..+/.test(email)) {
+      msg.textContent = "That email looks off. Try again?";
+      return false;
+    }
+
+    // nice little confirmation
+    msg.textContent = "Thanks! If this were 2003, we’d fax you a receipt.";
+
+    // redirect logic
+    if (codeInput) {
+      if (codeInput === SECRET_CODE.toLowerCase()) {
+        // go to your secret page (carry email along if you want)
+        setTimeout(() => {
+          window.location.href = `${SECRET_PAGE}?u=${encodeURIComponent(email)}`;
+        }, 600);
+      } else if (EXTRA_CODES[codeInput]) {
+        // go to external site
+        setTimeout(() => {
+          window.location.href = EXTRA_CODES[codeInput];
+        }, 600);
+      } else {
+        msg.textContent = "Code not recognized. Please see Pete (or try again).";
+      }
+    }
+
+    // don't actually submit the form (static site)
+    return false;
+  }
+
+  // footer year + fun counter
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const c = document.getElementById('counter');
+  let n = parseInt(c.textContent, 10) || 0;
+  n += Math.floor(Math.random() * 4) + 1;
+  c.textContent = String(n).padStart(7, '0');
+  </script>
+</body>
+</html>

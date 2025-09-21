@@ -1,0 +1,78 @@
+/* ANXS “retro-mundane” stylesheet */
+
+@media (prefers-reduced-motion: no-preference) {
+  .blink { animation: blink 1s step-end infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+}
+
+body {
+  background: #ece9d8 url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==') repeat;
+  color: #111;
+  font: 16px/1.4 "Courier New", Courier, monospace;
+}
+
+.page-wrap { max-width: 980px; margin: 12px auto; background: #fff; border: 3px double #333; box-shadow: 0 0 0 6px #ccc; }
+
+.site-header { display: flex; align-items: center; justify-content: space-between; padding: 6px 10px; background: linear-gradient(#dcdcdc, #bdbdbd); border-bottom: 4px ridge #666; }
+.logo { font-size: 42px; letter-spacing: 2px; font-weight: 800; text-shadow: 1px 1px #fff, -1px -1px #999; }
+.logo span { color: #b30000; }
+
+.tagline { width: 65%; font-size: 13px; color: #222; background:#efefef; border: 2px groove #999; padding: 2px 4px; }
+
+.top-nav { text-align: center; padding: 6px; background: #f7f7f7; border-bottom: 2px dashed #aaa; }
+.top-nav a { color: #0000ee; text-decoration: underline; }
+
+.layout-table { width: 100%; background: #fff; }
+.sidebar { width: 260px; background: #f4f4f4; }
+.sidebar h3 { margin-top:0; }
+.bullet { margin-left: 18px; }
+.coupon { margin-top: 12px; padding: 8px; background: #ffffcc; border: 2px dotted #999; }
+
+.maincell { background: #ffffff; }
+.maincell h1 { margin: 8px 0 4px; border-bottom: 2px solid #000; }
+.subtle { color:#444; font-style: italic; }
+
+.price-table { width: 100%; background: #fafafa; }
+.price-table th { background: #cfcfcf; text-align:left; }
+.fineprint { font-size: 12px; color: #555; }
+
+.hours td:first-child { width: 120px; }
+
+.signup form { display: grid; gap: 10px; grid-template-columns: 1fr; max-width: 520px; }
+.signup label { display: grid; gap: 6px; }
+.signup input, .signup select { padding: 6px; border: 2px inset #999; background:#fff; }
+.promo { border: 3px groove #777; background:#f0f0f0; }
+.btnrow { display:flex; gap:10px; }
+#msg { min-height: 1.2em; font-weight: bold; }
+
+.site-footer { display:flex; justify-content: space-between; align-items:center; padding: 6px 10px; background: #e5e5e5; border-top: 4px ridge #666; }
+.counter { font-family: "Lucida Console", Monaco, monospace; background:#000; color:#0f0; padding: 2px 6px; border: 2px inset #333; }
+
+.noscript { background:#ffdddd; color:#900; padding:8px; text-align:center; border-bottom:2px solid #900; }
+
+.animated-rainbow {
+  animation: rainbow-animation 5s infinite linear;
+}
+
+@keyframes rainbow-animation {
+  0% { color: red; }
+  14% { color: orange; }
+  28% { color: yellow; }
+  42% { color: green; }
+  56% { color: blue; }
+  70% { color: indigo; }
+  84% { color: violet; }
+  100% { color: red; }
+}
+
+    /* Styles for screen display */
+    .print-only {
+        display: none;
+    }
+
+    /* Styles for print */
+    @media print {
+        .print-only {
+            display: block; /* or display: inline, display: inline-block, etc. */
+        }
+    }

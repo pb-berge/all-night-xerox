@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ANXS — Welcome Agent</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body { background:#111; color:#F2F2F2; font-family: "Lucida Console", Monaco, monospace; }
+    .wrap { max-width: 780px; margin: 40px auto; border: 2px dashed #F20505; padding: 16px; }
+    a { color:#9f9; }
+    .box { background:#000; padding:12px; margin-top:14px; border: 2px inset #060; }
+    .btn { display:inline-block; padding:10px 14px; border:2px solid #F20505; text-decoration:none; } // 0F0
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Allied Network for Xenolinguistic Surveillance</h1>
+    <p>ACCESS: <strong>CONFIRMED</strong></p>
+    <div class="box">
+      <p>Welcome<span id="u"></span>.</p>
+      <p>Your being here can only mean one thing: that your game night is at risk of being cancelled--or worse, it's already happened.</p>
+		<p>The time to act is now: join the ANXS as a Probationary Field Agent, and you might not just save game night, <em>you might save humanity itself</em>.</p>
+
+      <p><a class="btn" id="play" href="https://gravesnail.itch.io/next-week" target="_blank" rel="noopener">→ Download <em><code>How's Next Week?</code></em></a></p>
+	 <p><a class="btn" id="trailer" href="https://youtu.be/_vUbdriJIus" target="_blank" rel="noopener">→ Watch Trailer</a></p>
+
+    </div>
+
+    <h2>Join The ANXS Today</h2>
+    <p><code>HOW’S NEXT WEEK</code> is not a game. It is a playful frolic through the haunted archives of disconnection. It is a mournful self-delusion festering in the wounds of missed game nights. Most importantly, it is a rescue mission.</p>
+
+
+    <h2>Requirements for Probationary Field Agents™</h2>
+    <ul>
+      <li><code>HNW</code> begins, spontaneously, whenever the scheduling for your regular play session falls through.</li>
+      <li><code>HNW</code> is intended for one player and an average play session will likely
+take between 30 and 90 minutes (or, roughly the length of a cancelled
+TTRPG session).</li>
+      <li>To play, you will need access to a smartphone (or other
+web-browsery device), a journal (physical or digital), and solitude.</li>
+    </ul>
+
+    <p><a href="index.html">← Quickly exit to ANXS "frontpage"</a></p>
+  </div>
+  <script>
+    // Optional: require a ref parameter
+    const params = new URLSearchParams(location.search);
+    const u = params.get("u");
+    if(!u){
+      // If no email parameter, send back to home (light obfuscation)
+      location.replace("index.html");
+    } else {
+      document.getElementById("u").textContent = ", " + u;
+    }
+    // TODO: Replace with real game URL before publishing
+    document.getElementById("play").href = "https://example.com/hnw"; 
+  </script>
+</body>
+</html>
