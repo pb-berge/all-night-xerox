@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ANXS • Safety Information</title>
+  <meta name="description" content="ANXS-issued safety information for members and civilians." />
+  <style>
+    /* ===== Vibes: retro mundane with a spooky hum ===== */
+    :root{
+      --ink:#121212;
+      --paper:#fffdf6;
+      --chrome:#bdbdbd;
+      --steel:#666;
+      --accent:#0f0;           /* receipt display glow */
+      --warn:#a30000;
+      --soft:#444;
+    }
+    html,body{height:100%}
+    body{background:#ece9d8; color:var(--ink); font:16px/1.45 "Courier New", Courier, monospace; margin:0}
+
+    .wrap{max-width:960px; margin:16px auto; background:#fff; border:3px double #333; box-shadow:0 0 0 6px #ccc}
+
+    /* ===== Receipt printer header ===== */
+    .printer{
+      background:linear-gradient(#dcdcdc,#bdbdbd);
+      border-bottom:4px ridge var(--steel);
+      padding:10px 14px 0;
+    }
+    .printer-head{
+      display:flex; align-items:center; gap:10px; color:#0a0;
+      font-family:"Lucida Console", Monaco, monospace;
+    }
+    .led{
+      width:8px; height:8px; background:#090; border:1px solid #030; box-shadow:0 0 10px #0f0; border-radius:2px;
+      animation:ledpulse 2.2s ease-in-out infinite;
+    }
+    @keyframes ledpulse{50%{background:#0f0; box-shadow:0 0 14px #4f4}}
+    .printer-head .screen{
+      flex:1; background:#000; color:var(--accent); padding:6px 8px; border:2px inset #1a1a1a; letter-spacing:1px;
+      white-space:nowrap; overflow:hidden;
+    }
+    .screen .marq{
+      display:inline-block; animation:scroll 18s linear infinite;
+    }
+    @keyframes scroll{
+      from{transform:translateX(0)} to{transform:translateX(-100%)}
+    }
+
+    /* “paper” coming out of printer */
+    .receipt{
+      margin-top:10px;
+      background:var(--paper);
+      color:#111;
+      padding:12px 16px;
+      border:2px solid #222;
+      border-bottom:4px ridge var(--steel);
+      position:relative;
+    }
+    /* perforations */
+    .receipt:before, .receipt:after{
+      content:"";
+      position:absolute; left:8px; right:8px; height:0; border-top:1px dashed #aaa;
+    }
+    .receipt:before{top:8px}
+    .receipt:after{bottom:8px}
+
+    nav{ padding:8px 14px; background:#f7f7f7; border-bottom:2px dashed #aaa; display:flex; gap:10px; flex-wrap:wrap }
+    nav a{ color:#0000ee; text-decoration:underline }
+
+    main{ padding:14px }
+
+    /* spooky tint + soft scanlines */
+    .spook{
+      position:relative;
+    }
+    .spook:after{
+      content:""; pointer-events:none; position:absolute; inset:0;
+      background: repeating-linear-gradient(180deg, rgba(0,0,0,0.03) 0px, rgba(0,0,0,0.03) 1px, transparent 2px, transparent 4px);
+      mix-blend-mode:multiply;
+    }
+
+    /* gate buttons (recipient first) */
+    .gate{ display:flex; gap:12px; flex-wrap:wrap; margin:8px 0 14px }
+    .gate button{
+      cursor:pointer; border:2px outset #999; background:#efefef; padding:8px 10px; font-weight:bold;
+    }
+    .panel{ display:none; border:2px groove #999; padding:12px; background:#fcfcfc }
+    .panel.active{ display:block }
+    h2{ margin:12px 0 6px; border-bottom:2px solid #000 }
+    h3{ margin:12px 0 6px }
+
+    .box{ border:2px dotted #666; padding:10px; background:#ffffe8 }
+    .warn{ background:#ffe9e9; border-color:var(--warn) }
+    .fine{ color:var(--soft); font-size:13px }
+    code, pre{ background:#f4f4f4; border:1px solid #ccc; padding:2px 4px }
+    pre{ white-space:pre-wrap }
+
+    .btnrow{ display:flex; gap:10px; flex-wrap:wrap; margin-top:10px }
+    .btn{ display:inline-block; padding:10px 14px; border:2px solid #000; text-decoration:none }
+    .btn.primary{ background:#000; color:#fff }
+    footer{ padding:8px 14px; background:#e5e5e5; border-top:4px ridge var(--steel); display:flex; justify-content:space-between }
+  </style>
+</head>
+<body>
+  <div class="wrap spook" id="consent">
+    <div class="printer">
+      <div class="printer-head">
+        <div class="led" aria-hidden="true"></div>
+        <div class="screen" aria-hidden="true">
+          <span class="marq">ALL-NIGHT XEROX SERVICES • WE COPY EVERYTHING SO YOU DON'T HAVE TO • ALL-NIGHT XEROX SERVICES • WE COPY EVERYTHING SO YOU DON'T HAVE TO </span>
+        </div>
+      </div>
+      <div class="receipt">
+        <strong>CAVETE AB OMNIBUS</strong><br/>
+        ANXS-issued safety guidelines. Please follow all instructions with dilligence. 
+      </div>
+    </div>
+
+    <nav>
+      <a href="index.html">← Back to ANXS Home</a>
+      • <a href="https://gravesnail.itch.io/next-week" target="_blank" rel="noopener">HNW on itch.io</a>
+    </nav>
+
+    <main>
+      <div class="gate">
+        <button id="btn-recipient">I'm here because I got sent a strange message…</button>
+        <button id="btn-player">I’m here because I'm sending strange messages!</button>
+      </div>
+
+      <!-- RECIPIENT PANEL (default active) -->
+      <section id="panel-recipient" class="panel active" aria-label="I received a message">
+        <h2>Someone sent you this website?</h2>
+        <p>
+          You’re here because a friend posted an unusual message and linked this page. This means your friend is either playing (or is thinking about playing) <em>How’s Next Week</em> (HNW): a short, solo journaling "anti-game that sometimes asks the player to post messages in a group chat as part of the story. <strong>Let's be clear: You don’t need to play.</strong> If you’re comfortable seeing/receiving those messages, a simple 👍 lets your friend include you as an audience, and you don't have to do anything more than that. (Unless you think going undercover to save humankind from transdimsenional bodysnatchers seems like your kind of thing, in which case, see below.)
+        </p>
+
+        <h3>What to Expect</h3>
+        <ul>
+          <li>You might get some slightly weird messages in your texts or group chat.</li>
+          <li>Your replies might influence the player’s story, but there are no special rules for you.</li>
+          <li>You can opt out any time—just say so to your friend. Your comfort matters.</li>
+        </ul>
+
+        <h3>Content Notice</h3>
+        <p class="box">
+          HNW may reference or thematically touch on <em>body horror, blood, gore, insects, parasites, censorship, global catastrophe</em> and themes of <em>gaslighting, alienation, loneliness, delusion, and cults</em>.
+        </p>
+
+        <h3>Boundaries & Safety</h3>
+        <p class="box">
+          The player is responsible for ensuring everyone is on board. If a post makes you uncomfortable, say so. If you prefer not to be included, that must be respected. 
+        </p>
+
+    
+      </section>
+
+      <!-- PLAYER PANEL -->
+      <section id="panel-player" class="panel" aria-label="Player information">
+        <h2>Agent Responsibilities</h2>
+
+        <div class="box warn">
+          <strong>Agent Responsibilities</strong><br/>
+          Although HNW is a “solo” journaling game, some prompts ask you to send “coded” messages to others who may be unaware of the game. It is unacceptable to use this game as a pretense to harass or abuse anyone. When you acquire HNW, <strong>post the consent prompt</strong> in your group chat and ensure you have a clear thumbs-up (or equivalent) from others before involving them.
+        </div>
+
+        <h3>Content Notice</h3>
+        <p class="box">
+          The writing and audiovisual media in HNW references: <em>body horror, blood, gore, insects, parasites, censorship, and global catastrophe</em>. It engages themes of <em>gaslighting, alienation, loneliness, delusion, and cults</em>.
+        </p>
+
+        <h3>Precautionary Measures</h3>
+        <p class="box">
+          HNW is likely to provoke feelings of discomfort—this is probably a good thing. The game explores disappointment, abandonment, betrayal, and anxiety around being in community with other players. There are intended “breaks” and aftercare prompts. <strong>Be kind to yourself:</strong> you can stop playing at any time, and you can call a friend.
+        </p>
+
+        <h3>Example Consent Post</h3>
+        <pre>Hey folks! I just picked up a strange little journaling game. I might play it sometime, and if I do, it could involve me writing messages here that also fulfill prompts from the game. Your replies could shape where the game goes, but you won’t need to do anything special. You can find details at anxs.today/consent. If you’re okay with that possibility, can I get a 👍?</pre>
+
+      </section>
+
+      <hr/>
+
+      <section aria-label="About the game">
+        <h2>About <em>How’s Next Week</em></h2>
+        <p>
+         HOW’S NEXT WEEK is a solo journaling anti-game that begins, spontaneously, whenever the scheduling for your regular play session falls through.</p>
+		  <p>HNW is intended for one player. Average playtime: ~30–90 minutes. To play, you will need access to a smartphone (or other web-browsery device), a journal (physical or digital), and solitude. 
+        </p>
+		      <div class="btnrow">
+          <a class="btn primary" href="https://gravesnail.itch.io/next-week" target="_blank" rel="noopener">Learn More on itch.io</a>
+          <a class="btn" href="index.html">Return to ANXS Home</a>
+        </div>
+        <p class="fine">Note: This page summarizes responsibilities and content notes so players and friends can make an informed choice together.</p>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> ANXS</div>
+      <div>“We were here before the cloud.”</div>
+    </footer>
+  </div>
+
+  <script>
+    // Year stamp
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // Panel toggling (recipient default)
+    const $playerBtn = document.getElementById('btn-player');
+    const $recipBtn  = document.getElementById('btn-recipient');
+    const $player    = document.getElementById('panel-player');
+    const $recip     = document.getElementById('panel-recipient');
+
+    function show(which){
+      const isRecip = which === 'recipient';
+      $recip.classList.toggle('active', isRecip);
+      $player.classList.toggle('active', !isRecip);
+      // update hash for deep-linking: consent.html#recipient or #player
+      location.hash = which;
+    }
+
+    $recipBtn.addEventListener('click', () => show('recipient'));
+    $playerBtn.addEventListener('click', () => show('player'));
+
+    // Deep-link support / default to recipient
+    const h = (location.hash || '#recipient').replace('#','');
+    if (h === 'player') show('player'); else show('recipient');
+  </script>
+</body>
+</html>
