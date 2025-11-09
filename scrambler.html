@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Xerox Shell — Playlist</title>
+  <meta name="color-scheme" content="dark" />
+  <meta name="description" content="Sample: Rhymosemantic Scrambler Protocol." />
+
+  <style>
+    :root{
+      --bg: #0a0b0d;         /* deep charcoal */
+      --bg2: #0f1115;        /* card/backdrop */
+      --fg: #e6e6e6;         /* primary text */
+      --muted: #a8a8b3;      /* secondary text */
+      --accent: #9b84ff;     /* subtle neon-lavender accent */
+      --ring: #ffffff1f;     /* focus ring */
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(0,0,0,.45), 0 2px 8px rgba(0,0,0,.5);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin: 0;
+      background: radial-gradient(1200px 800px at 50% -10%, #14161a 0%, var(--bg) 40%, #07080a 100%);
+      color: var(--fg);
+      font: 16px/1.5 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      -webkit-font-smoothing: antialiased;
+      display: grid;
+      place-items: center;
+      padding: 32px 16px;
+    }
+
+    .frame{
+      width: min(720px, 92vw);
+      background: linear-gradient(180deg, var(--bg2), #0c0d11);
+      border: 1px solid #ffffff12;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(2px);
+    }
+
+    .frame::before{
+      content: "";
+      position: absolute; inset: 0;
+      border-radius: calc(var(--radius) - 1px);
+      pointer-events: none;
+      box-shadow: inset 0 1px 0 #ffffff10, inset 0 0 0 1px #ffffff06;
+    }
+
+    header{
+      display: flex; align-items: baseline; justify-content: space-between;
+      gap: 12px; margin: 2px 4px 14px;
+    }
+
+    .title{
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: 12px; color: var(--muted);
+    }
+
+    .dot{
+      width: 6px; height: 6px; border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #fff, var(--accent) 45%, #6f5dde 75%, #312d5c);
+      box-shadow: 0 0 18px #8e7aff66, 0 0 3px #fff8;
+      display: inline-block; margin-right: 8px;
+    }
+
+    .embed-wrap{
+      border-radius: 14px; overflow: hidden;
+      outline: 1px solid #ffffff10;
+      background: #0b0c10;
+      box-shadow: inset 0 0 0 1px #00000066;
+    }
+
+    iframe{
+      display: block; width: 100%; height: 432px; border: 0;
+    }
+
+    footer{
+      margin-top: 10px; text-align: center; color: var(--muted); font-size: 12px;
+    }
+
+    a{ color: var(--fg); text-decoration: none; border-bottom: 1px dotted #ffffff33; }
+    a:hover{ border-bottom-color: var(--accent); color: #fff; }
+
+    :focus-visible{ outline: 2px solid var(--ring); outline-offset: 4px; border-radius: 8px; }
+
+    @media (max-width: 420px){ iframe{ height: 380px; } }
+  </style>
+</head>
+<body>
+  <main class="frame" role="main" aria-label="Spotify playlist">
+    <header>
+      <div class="title"><span class="dot" aria-hidden="true"></span>ANXS Official Sample Playlist (do not distribute without prior authorization)</div>
+      <!-- optional space for a tiny nav link back home; uncomment if needed -->
+      <a href="/" aria-label="Back to home">Home</a>
+    </header>
+
+    <section class="embed-wrap">
+      <iframe
+        title="Sample: Rhymosemantic Scrambler Protocol"
+        src="https://open.spotify.com/embed/playlist/7KohR7E9LcHVIcgMFGE6xT?utm_source=generator"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        >
+      </iframe>
+    </section>
+    <footer>
+      <span>Having trouble loading the player? </span>
+      <a href="https://open.spotify.com/playlist/7KohR7E9LcHVIcgMFGE6xT" target="_blank" rel="noopener">Open in Spotify</a>
+    </footer>
+  </main>
+</body>
+</html>
