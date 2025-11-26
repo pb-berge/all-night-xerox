@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PHASE X: DISENTANGLE</title>
+  <meta name="color-scheme" content="dark" />
+  <meta name="description" content="Thanks for playing. <3">
+
+  <style>
+    :root{
+      --bg: #0a0b0d;         /* deep charcoal */
+      --bg2: #0f1115;        /* card/backdrop */
+      --fg: #e6e6e6;         /* primary text */
+      --muted: #a8a8b3;      /* secondary text */
+      --accent: #9b84ff;     /* subtle neon-lavender accent */
+      --ring: #ffffff1f;     /* focus ring */
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(0,0,0,.45), 0 2px 8px rgba(0,0,0,.5);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+.review-link{
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.review-link a{
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px dotted #ffffff40;
+}
+.review-link a:hover{
+  color: #fff;
+  border-bottom-style: solid;
+}
+
+    body{
+      margin: 0;
+      background:
+        radial-gradient(circle at top, #202538 0, #060710 42%, #020306 100%);
+      color: var(--fg);
+      font: 15px/1.7 system-ui, -apple-system, BlinkMacSystemFont,
+            "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      display: grid;
+      place-items: center;
+      padding: 32px 16px;
+    }
+
+    .frame{
+      width: min(760px, 96vw);
+      background: linear-gradient(180deg, var(--bg2), #0c0d11);
+      border: 1px solid #ffffff12;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px 18px 16px;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(2px);
+    }
+
+    .frame::before{
+      content: "";
+      position: absolute; inset: 0;
+      border-radius: calc(var(--radius) - 1px);
+      pointer-events: none;
+      box-shadow:
+        inset 0 1px 0 #ffffff10,
+        inset 0 0 0 1px #ffffff06;
+    }
+
+    main{
+      position: relative;
+      z-index: 1;
+    }
+
+    header{
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 2px 4px 14px;
+      font-size: 12px;
+    }
+
+    .title{
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .dot{
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #fff, var(--accent) 45%, #6f5dde 75%, #312d5c);
+      box-shadow: 0 0 18px #8e7aff66, 0 0 3px #fff8;
+      display: inline-block;
+    }
+
+    .subtitle{
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    header a{
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px dotted #ffffff30;
+    }
+
+    header a:hover{
+      color: #ffffff;
+      border-bottom-color: var(--accent);
+    }
+
+    .note{
+      margin: 10px 4px 6px;
+    }
+
+    .note h1{
+      font-size: 20px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin: 0 0 12px;
+    }
+
+    .note p{
+      margin: 0 0 11px;
+      color: var(--fg);
+    }
+
+    .note p:last-of-type{
+      margin-bottom: 6px;
+    }
+
+    .note em{
+      font-style: italic;
+    }
+
+    .signature{
+      margin-top: 8px;
+      font-size: 16px;
+    }
+
+    .signature span{
+      margin-left: 4px;
+    }
+
+    footer{
+      margin-top: 10px;
+      text-align: right;
+      color: var(--muted);
+      font-size: 11px;
+      padding: 0 4px;
+    }
+
+    footer a{
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px dotted #ffffff30;
+    }
+
+    footer a:hover{
+      color: #ffffff;
+      border-bottom-color: var(--accent);
+    }
+
+    :focus-visible{
+      outline: 2px solid var(--ring);
+      outline-offset: 4px;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 480px){
+      body{ padding: 22px 10px; }
+      .frame{ padding: 14px 14px 12px; border-radius: 16px; }
+      .note h1{ font-size: 17px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <main>
+      <header>
+        <div class="title">
+          <span class="dot" aria-hidden="true"></span>
+          <span>PHASE X • DISENTANGLE</span>
+        </div>
+
+        <a href="/" aria-label="Back to ANXS home">ANXS.TODAY</a>
+      </header>
+
+      <section class="note" aria-label="Artist statement and thank-you">
+        <h1>Afterword: Nexts and Nevers</h1>
+
+        <p>
+          Wow, you made it here. I’m no stranger to secret endings, but this one feels different.
+        </p>
+
+        <p>
+          Maybe you completed a handful of Mandates and followed the clues. Maybe you poked around in repositories. Maybe you deleted parts of the PDF until you found what you were looking for. Maybe you “cheated” your way here (whatever that means—I’m no cop).
+        </p>
+
+        <p>
+          However you arrived, what matters is that you had to break <em>How’s Next Week?</em> open to get here.
+        </p>
+
+        <p>
+          I meant it when I said: Phase 6 is for me. There are no puzzles, no INTRIGANTS, no creepy vocaloids reading corpocademic nonsense. Over the last few years, I’ve found myself in the strange position of being a scholar-maker obsessed with tabletop role-playing games and yet struggling to find even a moment of respite to actually play them. My queer friends and I, overburdened by everything imploding all the time amid the rise of global fascism, are always running out of time.
+        </p>
+
+        <p>
+          That’s tangled up with a more personal truth: as I’ve transitioned, some of my tabletop groups—campaigns that had been ongoing for years—quietly went away. Folks stopped reaching out. More recently, academia moved me to Alberta, where I’m lucky to have a degree of institutional legitimacy, but also find myself separated from many friends and family members by a violently policed border.
+        </p>
+
+        <p>
+          I know these experiences aren’t unique. I expect you may have your own version of this story, too. Living in transition can make “next week” feel like it keeps collapsing into never. With HNW, I wanted to sit with that feeling and ask how we might find play in not playing.
+        </p>
+
+        <p>
+          This was never meant to be a game. It was never meant to be played. HNW became a way of playing with a hurtful lie sprung from anxiety. It can feel easier, sometimes, to pretend we’re hunting extradimensional bodysnatchers than to face the reality that transition means moving and changing, and that some people won’t know how—or won’t choose—to move and change with you. I think of HNW as a way of playing in what is, for me, one of the most painful “side affects” (in Hil Malatino’s sense) of being in community with other players and makers.
+        </p>
+
+        <p>
+          I don’t just want us to figure out how to play together; I want us to learn how we can not-play together.
+        </p>
+
+        <p>
+          So: thank you for <em>not playing</em> with me.
+        </p>
+
+        <p class="signature">
+          💖✨ <span>PB</span>
+        </p>
+		          <p class="review-link">
+          Also, if you wanna, you can leave a review on
+          <a href="https://gravesnail.itch.io/next-week" target="_blank" rel="noopener">
+            Itch
+          </a>! :3
+        </p>
+      </section>
+
+      <footer>
+        <span>All-Night Xerox Services (ANXS)</span>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
