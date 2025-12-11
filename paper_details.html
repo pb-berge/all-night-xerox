@@ -30,7 +30,6 @@
     <h2>Join The ANXS Today</h2>
     <p><code>HOW’S NEXT WEEK</code> is not a game. It is a playful frolic through the haunted archives of disconnection. It is a mournful self-delusion festering in the wounds of missed game nights. Most importantly, it is a rescue mission.</p>
 
-
     <h2>Requirements for Probationary Field Agents™</h2>
     <ul>
       <li><code>HNW</code> begins, spontaneously, whenever the scheduling for your regular play session falls through.</li>
@@ -41,20 +40,18 @@ TTRPG session).</li>
 web-browsery device), a journal (physical or digital), and solitude.</li>
     </ul>
 
-    <p><a href="index.html">← Quickly exit to ANXS "frontpage"</a></p>
+    <p><a href="index.html">← Exit to All-Night Xerox Services.</a></p>
   </div>
   <script>
-    // Optional: require a ref parameter
     const params = new URLSearchParams(location.search);
     const u = params.get("u");
     if(!u){
-      // If no email parameter, send back to home (light obfuscation)
       location.replace("index.html");
     } else {
       document.getElementById("u").textContent = ", " + u;
     }
     // TODO: Replace with real game URL before publishing
-    document.getElementById("play").href = "https://example.com/hnw"; 
+    document.getElementById("play").href = "https://gravesnail.itch.io/next-week"; 
   </script>
 </body>
 </html>
