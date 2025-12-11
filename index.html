@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>All‑Night Xerox Services (ANXS)</title>
-  <meta name="description" content="All‑Night Xerox Services — We copy everything so you don't have to. Est. 1996.">
+  <meta name="description" content="All‑Night Xerox Services — We copy so you don't have to. Est. 1996.">
   <link rel="stylesheet" href="styles.css" />
   <style>
     /* Fallback critical styles if CSS fails to load */
@@ -52,7 +52,7 @@
 
             <div class="coupon">
               <h4>Printable Coupon</h4>
-              <p>10% off on every 11th copy when you call Pete and say the word “toner”.</p>
+              <p>10% off on every 11th copy when you call Pete and say “toner”.</p>
               <button onclick="window.print()">Print This</button>
             </div>
           </td>
@@ -153,13 +153,12 @@
   </div>
 
   <script>
-  // ===== CONFIG =====
-  const SECRET_CODE = "xeroxnight"; 
+  const SECRET_CODE = "vigilant"; 
   const SECRET_PAGE = "paper_details.html"; 
 
-  // Add as many extra code->URL pairs as you like. Keys are matched case-insensitively.
   const EXTRA_CODES = {
     playtest: "https://gravesnail.itch.io/next-week/download/TZkB0R8dsEBwhOjTG9UEMLXFHqmICb6ZR0616_5Z",
+	qgcon: "https://gravesnail.itch.io/next-week/download/TZkB0R8dsEBwhOjTG9UEMLXFHqmICb6ZR0616_5Z",
     trailer: "https://youtu.be/_vUbdriJIus"
   };
   // ==================
@@ -171,24 +170,14 @@
     const codeInput = (document.getElementById('code').value || "").trim().toLowerCase();
     const msg = document.getElementById('msg');
 
-    // email sanity check
-    if (!/.+@.+\..+/.test(email)) {
-      msg.textContent = "That email looks off. Try again?";
-      return false;
-    }
-
-    // nice little confirmation
     msg.textContent = "Thanks! If this were 2003, we’d fax you a receipt.";
 
-    // redirect logic
     if (codeInput) {
       if (codeInput === SECRET_CODE.toLowerCase()) {
-        // go to your secret page (carry email along if you want)
         setTimeout(() => {
           window.location.href = `${SECRET_PAGE}?u=${encodeURIComponent(email)}`;
         }, 600);
       } else if (EXTRA_CODES[codeInput]) {
-        // go to external site
         setTimeout(() => {
           window.location.href = EXTRA_CODES[codeInput];
         }, 600);
@@ -196,12 +185,9 @@
         msg.textContent = "Code not recognized. Please see Pete (or try again).";
       }
     }
-
-    // don't actually submit the form (static site)
     return false;
   }
 
-  // footer year + fun counter
   document.getElementById('year').textContent = new Date().getFullYear();
   const c = document.getElementById('counter');
   let n = parseInt(c.textContent, 10) || 0;
@@ -210,4 +196,3 @@
   </script>
 </body>
 </html>
-
